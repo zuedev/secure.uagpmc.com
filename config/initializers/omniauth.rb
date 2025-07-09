@@ -10,7 +10,7 @@ puts "DISCORD_CLIENT_SECRET: #{ENV['DISCORD_CLIENT_SECRET'].present? ? 'Loaded' 
 OmniAuth.config.allowed_request_methods = [:get, :post]
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :discord, ENV['DISCORD_CLIENT_ID'], ENV['DISCORD_CLIENT_SECRET'], scope: 'identify email'
+  provider :discord, ENV['DISCORD_CLIENT_ID'], ENV['DISCORD_CLIENT_SECRET'], scope: 'identify email guilds guilds.members.read'
 end
 
 # Optional: To silence the warning about using GET for request methods
