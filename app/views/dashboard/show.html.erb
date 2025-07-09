@@ -1,13 +1,17 @@
-<h1>Welcome, <%= @username %>!</h1>
 
-<% if @discord_id.present? %>
-  <p>Your Discord ID: <strong><%= @discord_id %></strong></p>
-<% else %>
-  <p>Discord ID not found in session.</p>
-<% end %>
 
-<% if @email.present? %>
-  <p>Your Discord Email: <strong><%= @email %></strong></p>
-<% end %>
+<div style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: black; color: white; font-family: monospace;">
+  <h1>Welcome, <%= @username %>!</h1>
 
-<%= link_to "Logout", logout_path, data: { turbo_method: :delete } %>
+  <% if @discord_id.present? %>
+    <p>Your Discord ID: <strong><%= @discord_id %></strong></p>
+  <% else %>
+    <p>Discord ID not found in session.</p>
+  <% end %>
+
+  <% if @email.present? %>
+    <p>Your Discord Email: <strong><%= @email %></strong></p>
+  <% end %>
+
+  <%= link_to "Logout", logout_path, data: { turbo_method: :delete }, style: "color: red;" %>
+</div>
