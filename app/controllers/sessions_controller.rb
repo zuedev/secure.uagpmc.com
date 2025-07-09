@@ -2,8 +2,6 @@ class SessionsController < ApplicationController
   def create
     auth_hash = request.env["omniauth.auth"]
 
-    puts "Auth Hash: #{auth_hash.inspect}" # Debugging line to inspect the auth hash
-
     @discord_id = auth_hash["uid"] # This is the user's Discord ID
     @username = auth_hash["info"]["name"] # User's Discord username
     @email = auth_hash["info"]["email"] # User's Discord email (if 'email' scope was requested)
