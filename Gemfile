@@ -61,3 +61,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# Use dotenv to load environment variables from .env files
+gem 'dotenv-rails', groups: [:development, :test]
+
+# omniauth for Discord authentication
+gem "omniauth"
+gem "omniauth-discord"

@@ -1,0 +1,12 @@
+<h1>Welcome to My Rails App</h1>
+
+<% if session[:discord_id].present? %>
+  <p>You are logged in as <%= session[:username] %>.</p>
+  <%= link_to "Go to Dashboard", dashboard_path %>
+  <%= link_to "Logout", logout_path, data: { turbo_method: :delete } %>
+<% else %>
+  <%= link_to "Login with Discord", "/auth/discord" %>
+  <% if Rails.env.development? %>
+    <code style="background: lime; position: absolute; bottom: 0; left: 0;">Discord Client ID: <%= ENV['DISCORD_CLIENT_ID'] %></code>
+  <% end %>
+<% end %>
