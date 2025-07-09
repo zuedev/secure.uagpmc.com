@@ -48,6 +48,9 @@ RUN bundle exec bootsnap precompile app/ lib/
 # Make the rails executable
 RUN chmod +x ./bin/rails
 
+# Add execute permissions to the entrypoint script
+RUN chmod +x /rails/bin/docker-entrypoint
+
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
@@ -66,9 +69,6 @@ RUN groupadd --system --gid 1000 rails && \
     useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
     chown -R rails:rails db log storage tmp
 USER 1000:1000
-
-# Add execute permissions to the entrypoint script
-RUN chmod +x /rails/bin/docker-entrypoint
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
