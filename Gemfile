@@ -63,8 +63,11 @@ group :test do
 end
 
 # Use dotenv to load environment variables from .env files
-gem 'dotenv-rails', groups: [:development, :test]
+gem "dotenv-rails", groups: [ :development, :test ]
 
 # omniauth for Discord authentication
 gem "omniauth"
 gem "omniauth-discord"
+
+# HTTP client for making requests to Discord API
+gem "httparty"

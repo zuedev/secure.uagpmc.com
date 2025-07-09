@@ -23,6 +23,16 @@
                 <th>Email:</th>
                 <td><%= @email %></td>
             </tr>
+            <tr title="Your roles in the Discord server">
+                <th>Roles:</th>
+                <td>
+                    <% if @user_roles.any? %>
+                        <%= @user_roles.join(', ') %>
+                    <% else %>
+                        No roles found
+                    <% end %>
+                </td>
+            </tr>
         </table>
     </div>
 </section>
@@ -36,3 +46,20 @@
     <h2>Actions</h2>
     <span><%= link_to "Logout", logout_path, data: { turbo_method: :delete }, style: "color: red;" %></span>
 </section>
+
+<!-- Example of role-based content -->
+<% if user_has_discord_roles?(['admin_role_id']) %>
+<section>
+    <h2>Admin Panel</h2>
+    <p>This section is only visible to users with admin roles.</p>
+    <!-- Admin-only content here -->
+</section>
+<% end %>
+
+<% if user_has_discord_roles?(['moderator_role_id', 'admin_role_id']) %>
+<section>
+    <h2>Moderation Tools</h2>
+    <p>This section is visible to moderators and admins.</p>
+    <!-- Moderator tools here -->
+</section>
+<% end %>
