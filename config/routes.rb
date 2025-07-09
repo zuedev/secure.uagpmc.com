@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   
   root 'home#index' # Set your root path
   
+  get "/terms-of-service", to: "home#terms-of-service"
+  get "/privacy-policy", to: "home#privacy-policy"
+  
   # Define routes for user authentication
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: 'sessions#failure'
