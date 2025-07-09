@@ -1,20 +1,38 @@
-<img src="<%= @avatar %>" style="width: 100px; height: 100px;">
+<style>
+    section {
+        border: white solid 1px;
+        padding: 10px;
+        margin: 10px;
+    }
+</style>
 
-<h2>Contractor Information</h2>
-<table>
-    <tr title="This is your unique Discord ID. It is used to identify you in our system. This cannot be changed.">
-        <th>ID:</th>
-        <td><%= @discord_id %></td>
-    </tr>
-    <tr title="This is your Discord username. Change it in your Discord settings if needed.">
-        <th>Username:</th>
-        <td><%= @username %></td>
-    </tr>
-    <tr title="This is the email associated with your Discord account. Change it in your Discord settings if needed.">
-        <th>Email:</th>
-        <td><%= @email %></td>
-    </tr>
-</table>
+<section>
+    <h2>Contractor Information</h2>
+    <div style="display: flex; gap: 10px;">
+        <img src="<%= @avatar %>" style="width: 100px; height: 100px;">
+        <table>
+            <tr title="This is your unique Discord ID. It is used to identify you in our system. This cannot be changed.">
+                <th>ID:</th>
+                <td><%= @discord_id %></td>
+            </tr>
+            <tr title="This is your Discord username. Change it in your Discord settings if needed.">
+                <th>Username:</th>
+                <td><%= @username %></td>
+            </tr>
+            <tr title="This is the email associated with your Discord account. Change it in your Discord settings if needed.">
+                <th>Email:</th>
+                <td><%= @email %></td>
+            </tr>
+        </table>
+    </div>
+</section>
 
-<h2>Actions</h2>
-<%= link_to "Logout", logout_path, data: { turbo_method: :delete }, style: "color: red;" %>
+<section>
+    <h2>Permanent Record</h2>
+    <p>Error connecting to database... Please try again later.</p>
+</section>
+
+<section>
+    <h2>Actions</h2>
+    <span><%= link_to "Logout", logout_path, data: { turbo_method: :delete }, style: "color: red;" %></span>
+</section>
