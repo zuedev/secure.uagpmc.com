@@ -8,3 +8,13 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* hide scrollbar without losing functionality */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* remove body margin */
+body {
+    margin: 0;
+}
