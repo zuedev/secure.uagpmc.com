@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   
   root 'home#index' # Set your root path
+  
+  # Define routes for user authentication
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: 'sessions#failure'
   get '/dashboard', to: 'dashboard#show', as: 'dashboard'
