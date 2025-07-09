@@ -67,6 +67,9 @@ RUN groupadd --system --gid 1000 rails && \
     chown -R rails:rails db log storage tmp
 USER 1000:1000
 
+# Add execute permissions to the entrypoint script
+RUN chmod +x /rails/bin/docker-entrypoint
+
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
