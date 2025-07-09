@@ -1,0 +1,12 @@
+services:
+  secure-uagpmc-com:
+    image: ghcr.io/zuedev/secure.uagpmc.com:master
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - 5711:3000
+    volumes:
+      - storage:/rails/storage
+
+volumes:
+  storage:
