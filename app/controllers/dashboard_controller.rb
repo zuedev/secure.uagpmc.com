@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     @discord_id = session[:discord_id]
     @username = session[:username]
     @email = session[:email]
+    @avatar = session[:avatar]
   end
 
   private

@@ -14,7 +14,32 @@
     display: none;
 }
 
-/* remove body margin */
-body {
-    margin: 0;
+/* set default font to monospace */
+html {
+    font-family: monospace;
+}
+
+/* remove header margin if first child */
+h1:first-child {
+    margin-top: 0;
+}
+
+/* dark mode defaults */
+html {
+    background-color: black;
+    color: white;
+}
+
+a {
+    color: #0f0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* right-align table headers */
+th {
+    text-align: right;
 }

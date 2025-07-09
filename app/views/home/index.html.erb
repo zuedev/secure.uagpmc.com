@@ -1,11 +1,11 @@
-<div style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: black; color: white; font-family: monospace;">
-  <% if session[:discord_id].present? %>
-    <h1>Welcome back, contractor.</h1>
-    <p>You are logged in as <%= session[:username] %>.</p>
-    <%= link_to "Go to Dashboard", dashboard_path, style: "color: lime;" %>
-    <%= link_to "Logout", logout_path, data: { turbo_method: :delete }, style: "color: red;" %>
-  <% else %>
-    <h1>UAGPMC Secure Portal</h1>
-    <%= link_to "Enter Credentials", "/auth/discord", style: "background-color: #7289da; color: white; padding: 10px 20px; text-decoration: none;" %>
-  <% end %>
-</div>
+<% if session[:discord_id].present? %>
+  <%# redirect to dashboard %>
+  <p>Redirecting to your dashboard...</p>
+  <p>If you are not redirected automatically, <%= link_to "click here", dashboard_path %>.</p>
+  <script>
+    window.location.href = "<%= dashboard_path %>";
+  </script>
+<% else %>
+  <h1>UAGPMC Secure Portal</h1>
+  <%= link_to "Authorize with Discord", "/auth/discord" %>
+<% end %>

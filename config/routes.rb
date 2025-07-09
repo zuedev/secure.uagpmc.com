@@ -13,15 +13,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  
-  root 'home#index' # Set your root path
-  
+
+  root "home#index" # Set your root path
+
   get "/terms-of-service", to: "home#terms-of-service"
   get "/privacy-policy", to: "home#privacy-policy"
-  
+
   # Define routes for user authentication
-  get '/auth/:provider/callback', to: 'sessions#create'
-  get '/auth/failure', to: 'sessions#failure'
-  get '/dashboard', to: 'dashboard#show', as: 'dashboard'
-  delete '/logout', to: 'sessions#destroy', as: 'logout' # For logout functionality
+  get "/auth/:provider/callback", to: "sessions#create"
+  get "/auth/failure", to: "sessions#failure"
+  get "/dashboard", to: "dashboard#show", as: "dashboard"
+  delete "/logout", to: "sessions#destroy", as: "logout" # For logout functionality
 end
